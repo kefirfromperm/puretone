@@ -2,7 +2,7 @@ let audioContext;
 let oscillator;
 
 function isFragmentValid() {
-  return window.location.hash.match('#\\d{2,4}');
+  return window.location.hash.match('#\\d{2,4}(\\.\\d{1,2})?');
 }
 
 function fixFragment() {
