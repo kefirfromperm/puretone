@@ -64,7 +64,7 @@ $(document).ready(function () {
 })
 
 function isPlaying() {
-  return audioContext !== undefined && audioContext.state !== 'suspended'
+  return audioContext !== undefined && audioContext.state === 'running'
 }
 
 function play() {
@@ -88,8 +88,10 @@ function play() {
     audioContext.resume()
   }
 
-  $('#play-button-icon').removeClass('bi-play-fill').addClass('bi-pause-fill')
-  $('#play-button-text').text('Pause')
+  if (isPlaying()) {
+    $('#play-button-icon').removeClass('bi-play-fill').addClass('bi-pause-fill')
+    $('#play-button-text').text('Pause')
+  }
 }
 
 function pause() {
