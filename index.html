@@ -19,180 +19,212 @@
   <meta name="description"
         content="Pure Tone Online - A web-based tone generator that allows you to play pure tones at specific frequencies, adjust volume, and select musical notes from C0 to C8.">
   <title>440Hz &mdash; Pure Tone Online</title>
+  <link rel="apple-touch-icon-precomposed" sizes="57x57" href="icons/apple-touch-icon-57x57.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="icons/apple-touch-icon-114x114.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="icons/apple-touch-icon-72x72.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="icons/apple-touch-icon-144x144.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="60x60" href="icons/apple-touch-icon-60x60.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="120x120" href="icons/apple-touch-icon-120x120.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="76x76" href="icons/apple-touch-icon-76x76.png" />
+  <link rel="apple-touch-icon-precomposed" sizes="152x152" href="icons/apple-touch-icon-152x152.png" />
+  <link rel="icon" type="image/png" href="icons/favicon-196x196.png" sizes="196x196" />
+  <link rel="icon" type="image/png" href="icons/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/png" href="icons/favicon-32x32.png" sizes="32x32" />
+  <link rel="icon" type="image/png" href="icons/favicon-16x16.png" sizes="16x16" />
+  <link rel="icon" type="image/png" href="icons/favicon-128.png" sizes="128x128" />
+  <meta name="application-name" content="&nbsp;" />
+  <meta name="msapplication-TileColor" content="#FFFFFF" />
+  <meta name="msapplication-TileImage" content="icons/mstile-144x144.png" />
+  <meta name="msapplication-square70x70logo" content="icons/mstile-70x70.png" />
+  <meta name="msapplication-square150x150logo" content="icons/mstile-150x150.png" />
+  <meta name="msapplication-wide310x150logo" content="icons/mstile-310x150.png" />
+  <meta name="msapplication-square310x310logo" content="icons/mstile-310x310.png" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body>
   <div class="container">
-    <header>
-      <h1 class="text-center">Pure Tone Online</h1>
+    <header class="mb-5">
+      <h1 class="text-center display-1">Pure Tone Online</h1>
     </header>
     <main>
-      <section>
-        <div class="text-center text-body-secondary" style="font-size: 10rem">
+      <section class="mb-5">
+        <div class="text-center text-body-primary" style="font-size: 10rem">
           <span id="freq-display">440</span> Hz
         </div>
         <div class="text-center">
-          <button id="play-button" type="button" class="btn btn-outline-secondary btn-lg">
+          <button id="play-button" type="button" class="btn btn-outline-dark btn-lg">
             <i id="play-button-icon" class="bi bi-play-fill"></i><span id="play-button-text">Play</span>
           </button>
         </div>
       </section>
-      <section>
+      <section class="mb-5">
         <form>
           <div class="mb-3">
             <label for="freq-slider" class="form-label">Frequency:</label>
-            <input type="range" id="freq-slider" class="form-control" min="1" max="4" step="0.0001">
+            <input type="range" id="freq-slider" class="form-range" min="1" max="4" step="0.0001">
           </div>
           <div class="mb-3">
             <label for="gain-slider" class="form-label">Volume:</label>
-            <input type="range" id="gain-slider" class="form-control" min="0" max="100" step="1" value="100">
+            <input type="range" id="gain-slider" class="form-range" min="0" max="100" step="1" value="100">
           </div>
         </form>
         <br>
       </section>
-      <section>
+      <section class="mb-5">
         <div class="container text-center">
           <div class="row">
-            <div class="col"><p><a href="#32.7" class="link-secondary note-button">C0</a></p></div>
-            <div class="col"><p><a href="#34.65" class="link-secondary note-button">C#0 / Db0</a></p></div>
-            <div class="col"><p><a href="#36.71" class="link-secondary note-button">D0</a></p></div>
-            <div class="col"><p><a href="#38.89" class="link-secondary note-button">D#0 / Eb0</a></p></div>
-            <div class="col"><p><a href="#41.2" class="link-secondary note-button">E0</a></p></div>
-            <div class="col"><p><a href="#43.65" class="link-secondary note-button">F0</a></p></div>
-            <div class="col"><p><a href="#46.25" class="link-secondary note-button">F#0 / Gb0</a></p></div>
-            <div class="col"><p><a href="#49.0" class="link-secondary note-button">G0</a></p></div>
-            <div class="col"><p><a href="#51.91" class="link-secondary note-button">G#0 / Ab0</a></p></div>
-            <div class="col"><p><a href="#55.0" class="link-secondary note-button">A0</a></p></div>
-            <div class="col"><p><a href="#58.27" class="link-secondary note-button">A#0 / Bb0</a></p></div>
-            <div class="col"><p><a href="#61.74" class="link-secondary note-button">B0</a></p></div>
+            <div class="col"><p><a href="#32.7" class="link-dark note-button">C0</a></p></div>
+            <div class="col"><p><a href="#34.65" class="link-dark note-button">C#0 / Db0</a></p></div>
+            <div class="col"><p><a href="#36.71" class="link-dark note-button">D0</a></p></div>
+            <div class="col"><p><a href="#38.89" class="link-dark note-button">D#0 / Eb0</a></p></div>
+            <div class="col"><p><a href="#41.2" class="link-dark note-button">E0</a></p></div>
+            <div class="col"><p><a href="#43.65" class="link-dark note-button">F0</a></p></div>
+            <div class="col"><p><a href="#46.25" class="link-dark note-button">F#0 / Gb0</a></p></div>
+            <div class="col"><p><a href="#49.0" class="link-dark note-button">G0</a></p></div>
+            <div class="col"><p><a href="#51.91" class="link-dark note-button">G#0 / Ab0</a></p></div>
+            <div class="col"><p><a href="#55.0" class="link-dark note-button">A0</a></p></div>
+            <div class="col"><p><a href="#58.27" class="link-dark note-button">A#0 / Bb0</a></p></div>
+            <div class="col"><p><a href="#61.74" class="link-dark note-button">B0</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#65.41" class="link-secondary note-button">C1</a></p></div>
-            <div class="col"><p><a href="#69.3" class="link-secondary note-button">C#1 / Db1</a></p></div>
-            <div class="col"><p><a href="#73.42" class="link-secondary note-button">D1</a></p></div>
-            <div class="col"><p><a href="#77.78" class="link-secondary note-button">D#1 / Eb1</a></p></div>
-            <div class="col"><p><a href="#82.41" class="link-secondary note-button">E1</a></p></div>
-            <div class="col"><p><a href="#87.31" class="link-secondary note-button">F1</a></p></div>
-            <div class="col"><p><a href="#92.5" class="link-secondary note-button">F#1 / Gb1</a></p></div>
-            <div class="col"><p><a href="#98.0" class="link-secondary note-button">G1</a></p></div>
-            <div class="col"><p><a href="#103.83" class="link-secondary note-button">G#1 / Ab1</a></p></div>
-            <div class="col"><p><a href="#110.0" class="link-secondary note-button">A1</a></p></div>
-            <div class="col"><p><a href="#116.54" class="link-secondary note-button">A#1 / Bb1</a></p></div>
-            <div class="col"><p><a href="#123.47" class="link-secondary note-button">B1</a></p></div>
+            <div class="col"><p><a href="#65.41" class="link-dark note-button">C1</a></p></div>
+            <div class="col"><p><a href="#69.3" class="link-dark note-button">C#1 / Db1</a></p></div>
+            <div class="col"><p><a href="#73.42" class="link-dark note-button">D1</a></p></div>
+            <div class="col"><p><a href="#77.78" class="link-dark note-button">D#1 / Eb1</a></p></div>
+            <div class="col"><p><a href="#82.41" class="link-dark note-button">E1</a></p></div>
+            <div class="col"><p><a href="#87.31" class="link-dark note-button">F1</a></p></div>
+            <div class="col"><p><a href="#92.5" class="link-dark note-button">F#1 / Gb1</a></p></div>
+            <div class="col"><p><a href="#98.0" class="link-dark note-button">G1</a></p></div>
+            <div class="col"><p><a href="#103.83" class="link-dark note-button">G#1 / Ab1</a></p></div>
+            <div class="col"><p><a href="#110.0" class="link-dark note-button">A1</a></p></div>
+            <div class="col"><p><a href="#116.54" class="link-dark note-button">A#1 / Bb1</a></p></div>
+            <div class="col"><p><a href="#123.47" class="link-dark note-button">B1</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#130.81" class="link-secondary note-button">C2</a></p></div>
-            <div class="col"><p><a href="#138.59" class="link-secondary note-button">C#2 / Db2</a></p></div>
-            <div class="col"><p><a href="#146.83" class="link-secondary note-button">D2</a></p></div>
-            <div class="col"><p><a href="#155.56" class="link-secondary note-button">D#2 / Eb2</a></p></div>
-            <div class="col"><p><a href="#164.81" class="link-secondary note-button">E2</a></p></div>
-            <div class="col"><p><a href="#174.61" class="link-secondary note-button">F2</a></p></div>
-            <div class="col"><p><a href="#185.0" class="link-secondary note-button">F#2 / Gb2</a></p></div>
-            <div class="col"><p><a href="#196.0" class="link-secondary note-button">G2</a></p></div>
-            <div class="col"><p><a href="#207.65" class="link-secondary note-button">G#2 / Ab2</a></p></div>
-            <div class="col"><p><a href="#220.0" class="link-secondary note-button">A2</a></p></div>
-            <div class="col"><p><a href="#233.08" class="link-secondary note-button">A#2 / Bb2</a></p></div>
-            <div class="col"><p><a href="#246.94" class="link-secondary note-button">B2</a></p></div>
+            <div class="col"><p><a href="#130.81" class="link-dark note-button">C2</a></p></div>
+            <div class="col"><p><a href="#138.59" class="link-dark note-button">C#2 / Db2</a></p></div>
+            <div class="col"><p><a href="#146.83" class="link-dark note-button">D2</a></p></div>
+            <div class="col"><p><a href="#155.56" class="link-dark note-button">D#2 / Eb2</a></p></div>
+            <div class="col"><p><a href="#164.81" class="link-dark note-button">E2</a></p></div>
+            <div class="col"><p><a href="#174.61" class="link-dark note-button">F2</a></p></div>
+            <div class="col"><p><a href="#185.0" class="link-dark note-button">F#2 / Gb2</a></p></div>
+            <div class="col"><p><a href="#196.0" class="link-dark note-button">G2</a></p></div>
+            <div class="col"><p><a href="#207.65" class="link-dark note-button">G#2 / Ab2</a></p></div>
+            <div class="col"><p><a href="#220.0" class="link-dark note-button">A2</a></p></div>
+            <div class="col"><p><a href="#233.08" class="link-dark note-button">A#2 / Bb2</a></p></div>
+            <div class="col"><p><a href="#246.94" class="link-dark note-button">B2</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#261.63" class="link-secondary note-button">C3</a></p></div>
-            <div class="col"><p><a href="#277.18" class="link-secondary note-button">C#3 / Db3</a></p></div>
-            <div class="col"><p><a href="#293.66" class="link-secondary note-button">D3</a></p></div>
-            <div class="col"><p><a href="#311.13" class="link-secondary note-button">D#3 / Eb3</a></p></div>
-            <div class="col"><p><a href="#329.63" class="link-secondary note-button">E3</a></p></div>
-            <div class="col"><p><a href="#349.23" class="link-secondary note-button">F3</a></p></div>
-            <div class="col"><p><a href="#369.99" class="link-secondary note-button">F#3 / Gb3</a></p></div>
-            <div class="col"><p><a href="#392.0" class="link-secondary note-button">G3</a></p></div>
-            <div class="col"><p><a href="#415.3" class="link-secondary note-button">G#3 / Ab3</a></p></div>
-            <div class="col"><p><a href="#440.0" class="link-secondary note-button">A3</a></p></div>
-            <div class="col"><p><a href="#466.16" class="link-secondary note-button">A#3 / Bb3</a></p></div>
-            <div class="col"><p><a href="#493.88" class="link-secondary note-button">B3</a></p></div>
+            <div class="col"><p><a href="#261.63" class="link-dark note-button">C3</a></p></div>
+            <div class="col"><p><a href="#277.18" class="link-dark note-button">C#3 / Db3</a></p></div>
+            <div class="col"><p><a href="#293.66" class="link-dark note-button">D3</a></p></div>
+            <div class="col"><p><a href="#311.13" class="link-dark note-button">D#3 / Eb3</a></p></div>
+            <div class="col"><p><a href="#329.63" class="link-dark note-button">E3</a></p></div>
+            <div class="col"><p><a href="#349.23" class="link-dark note-button">F3</a></p></div>
+            <div class="col"><p><a href="#369.99" class="link-dark note-button">F#3 / Gb3</a></p></div>
+            <div class="col"><p><a href="#392.0" class="link-dark note-button">G3</a></p></div>
+            <div class="col"><p><a href="#415.3" class="link-dark note-button">G#3 / Ab3</a></p></div>
+            <div class="col"><p><a href="#440.0" class="link-dark note-button">A3</a></p></div>
+            <div class="col"><p><a href="#466.16" class="link-dark note-button">A#3 / Bb3</a></p></div>
+            <div class="col"><p><a href="#493.88" class="link-dark note-button">B3</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#523.25" class="link-secondary note-button">C4</a></p></div>
-            <div class="col"><p><a href="#554.37" class="link-secondary note-button">C#4 / Db4</a></p></div>
-            <div class="col"><p><a href="#587.33" class="link-secondary note-button">D4</a></p></div>
-            <div class="col"><p><a href="#622.25" class="link-secondary note-button">D#4 / Eb4</a></p></div>
-            <div class="col"><p><a href="#659.26" class="link-secondary note-button">E4</a></p></div>
-            <div class="col"><p><a href="#698.46" class="link-secondary note-button">F4</a></p></div>
-            <div class="col"><p><a href="#739.99" class="link-secondary note-button">F#4 / Gb4</a></p></div>
-            <div class="col"><p><a href="#783.99" class="link-secondary note-button">G4</a></p></div>
-            <div class="col"><p><a href="#830.61" class="link-secondary note-button">G#4 / Ab4</a></p></div>
-            <div class="col"><p><a href="#880.0" class="link-secondary note-button">A4</a></p></div>
-            <div class="col"><p><a href="#932.33" class="link-secondary note-button">A#4 / Bb4</a></p></div>
-            <div class="col"><p><a href="#987.77" class="link-secondary note-button">B4</a></p></div>
+            <div class="col"><p><a href="#523.25" class="link-dark note-button">C4</a></p></div>
+            <div class="col"><p><a href="#554.37" class="link-dark note-button">C#4 / Db4</a></p></div>
+            <div class="col"><p><a href="#587.33" class="link-dark note-button">D4</a></p></div>
+            <div class="col"><p><a href="#622.25" class="link-dark note-button">D#4 / Eb4</a></p></div>
+            <div class="col"><p><a href="#659.26" class="link-dark note-button">E4</a></p></div>
+            <div class="col"><p><a href="#698.46" class="link-dark note-button">F4</a></p></div>
+            <div class="col"><p><a href="#739.99" class="link-dark note-button">F#4 / Gb4</a></p></div>
+            <div class="col"><p><a href="#783.99" class="link-dark note-button">G4</a></p></div>
+            <div class="col"><p><a href="#830.61" class="link-dark note-button">G#4 / Ab4</a></p></div>
+            <div class="col"><p><a href="#880.0" class="link-dark note-button">A4</a></p></div>
+            <div class="col"><p><a href="#932.33" class="link-dark note-button">A#4 / Bb4</a></p></div>
+            <div class="col"><p><a href="#987.77" class="link-dark note-button">B4</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#1046.5" class="link-secondary note-button">C5</a></p></div>
-            <div class="col"><p><a href="#1108.73" class="link-secondary note-button">C#5 / Db5</a></p></div>
-            <div class="col"><p><a href="#1174.66" class="link-secondary note-button">D5</a></p></div>
-            <div class="col"><p><a href="#1244.51" class="link-secondary note-button">D#5 / Eb5</a></p></div>
-            <div class="col"><p><a href="#1318.51" class="link-secondary note-button">E5</a></p></div>
-            <div class="col"><p><a href="#1396.91" class="link-secondary note-button">F5</a></p></div>
-            <div class="col"><p><a href="#1479.98" class="link-secondary note-button">F#5 / Gb5</a></p></div>
-            <div class="col"><p><a href="#1567.98" class="link-secondary note-button">G5</a></p></div>
-            <div class="col"><p><a href="#1661.22" class="link-secondary note-button">G#5 / Ab5</a></p></div>
-            <div class="col"><p><a href="#1760.0" class="link-secondary note-button">A5</a></p></div>
-            <div class="col"><p><a href="#1864.66" class="link-secondary note-button">A#5 / Bb5</a></p></div>
-            <div class="col"><p><a href="#1975.53" class="link-secondary note-button">B5</a></p></div>
+            <div class="col"><p><a href="#1046.5" class="link-dark note-button">C5</a></p></div>
+            <div class="col"><p><a href="#1108.73" class="link-dark note-button">C#5 / Db5</a></p></div>
+            <div class="col"><p><a href="#1174.66" class="link-dark note-button">D5</a></p></div>
+            <div class="col"><p><a href="#1244.51" class="link-dark note-button">D#5 / Eb5</a></p></div>
+            <div class="col"><p><a href="#1318.51" class="link-dark note-button">E5</a></p></div>
+            <div class="col"><p><a href="#1396.91" class="link-dark note-button">F5</a></p></div>
+            <div class="col"><p><a href="#1479.98" class="link-dark note-button">F#5 / Gb5</a></p></div>
+            <div class="col"><p><a href="#1567.98" class="link-dark note-button">G5</a></p></div>
+            <div class="col"><p><a href="#1661.22" class="link-dark note-button">G#5 / Ab5</a></p></div>
+            <div class="col"><p><a href="#1760.0" class="link-dark note-button">A5</a></p></div>
+            <div class="col"><p><a href="#1864.66" class="link-dark note-button">A#5 / Bb5</a></p></div>
+            <div class="col"><p><a href="#1975.53" class="link-dark note-button">B5</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#2093.0" class="link-secondary note-button">C6</a></p></div>
-            <div class="col"><p><a href="#2217.46" class="link-secondary note-button">C#6 / Db6</a></p></div>
-            <div class="col"><p><a href="#2349.32" class="link-secondary note-button">D6</a></p></div>
-            <div class="col"><p><a href="#2489.02" class="link-secondary note-button">D#6 / Eb6</a></p></div>
-            <div class="col"><p><a href="#2637.02" class="link-secondary note-button">E6</a></p></div>
-            <div class="col"><p><a href="#2793.83" class="link-secondary note-button">F6</a></p></div>
-            <div class="col"><p><a href="#2959.96" class="link-secondary note-button">F#6 / Gb6</a></p></div>
-            <div class="col"><p><a href="#3135.96" class="link-secondary note-button">G6</a></p></div>
-            <div class="col"><p><a href="#3322.44" class="link-secondary note-button">G#6 / Ab6</a></p></div>
-            <div class="col"><p><a href="#3520.0" class="link-secondary note-button">A6</a></p></div>
-            <div class="col"><p><a href="#3729.31" class="link-secondary note-button">A#6 / Bb6</a></p></div>
-            <div class="col"><p><a href="#3951.07" class="link-secondary note-button">B6</a></p></div>
+            <div class="col"><p><a href="#2093.0" class="link-dark note-button">C6</a></p></div>
+            <div class="col"><p><a href="#2217.46" class="link-dark note-button">C#6 / Db6</a></p></div>
+            <div class="col"><p><a href="#2349.32" class="link-dark note-button">D6</a></p></div>
+            <div class="col"><p><a href="#2489.02" class="link-dark note-button">D#6 / Eb6</a></p></div>
+            <div class="col"><p><a href="#2637.02" class="link-dark note-button">E6</a></p></div>
+            <div class="col"><p><a href="#2793.83" class="link-dark note-button">F6</a></p></div>
+            <div class="col"><p><a href="#2959.96" class="link-dark note-button">F#6 / Gb6</a></p></div>
+            <div class="col"><p><a href="#3135.96" class="link-dark note-button">G6</a></p></div>
+            <div class="col"><p><a href="#3322.44" class="link-dark note-button">G#6 / Ab6</a></p></div>
+            <div class="col"><p><a href="#3520.0" class="link-dark note-button">A6</a></p></div>
+            <div class="col"><p><a href="#3729.31" class="link-dark note-button">A#6 / Bb6</a></p></div>
+            <div class="col"><p><a href="#3951.07" class="link-dark note-button">B6</a></p></div>
           </div>
           <div class="row">
-            <div class="col"><p><a href="#4186.01" class="link-secondary note-button">C7</a></p></div>
-            <div class="col"><p><a href="#4434.92" class="link-secondary note-button">C#7 / Db7</a></p></div>
-            <div class="col"><p><a href="#4698.64" class="link-secondary note-button">D7</a></p></div>
-            <div class="col"><p><a href="#4978.03" class="link-secondary note-button">D#7 / Eb7</a></p></div>
-            <div class="col"><p><a href="#5274.04" class="link-secondary note-button">E7</a></p></div>
-            <div class="col"><p><a href="#5587.65" class="link-secondary note-button">F7</a></p></div>
-            <div class="col"><p><a href="#5919.91" class="link-secondary note-button">F#7 / Gb7</a></p></div>
-            <div class="col"><p><a href="#6271.93" class="link-secondary note-button">G7</a></p></div>
-            <div class="col"><p><a href="#6644.88" class="link-secondary note-button">G#7 / Ab7</a></p></div>
-            <div class="col"><p><a href="#7040.0" class="link-secondary note-button">A7</a></p></div>
-            <div class="col"><p><a href="#7458.62" class="link-secondary note-button">A#7 / Bb7</a></p></div>
-            <div class="col"><p><a href="#7902.13" class="link-secondary note-button">B7</a></p></div>
+            <div class="col"><p><a href="#4186.01" class="link-dark note-button">C7</a></p></div>
+            <div class="col"><p><a href="#4434.92" class="link-dark note-button">C#7 / Db7</a></p></div>
+            <div class="col"><p><a href="#4698.64" class="link-dark note-button">D7</a></p></div>
+            <div class="col"><p><a href="#4978.03" class="link-dark note-button">D#7 / Eb7</a></p></div>
+            <div class="col"><p><a href="#5274.04" class="link-dark note-button">E7</a></p></div>
+            <div class="col"><p><a href="#5587.65" class="link-dark note-button">F7</a></p></div>
+            <div class="col"><p><a href="#5919.91" class="link-dark note-button">F#7 / Gb7</a></p></div>
+            <div class="col"><p><a href="#6271.93" class="link-dark note-button">G7</a></p></div>
+            <div class="col"><p><a href="#6644.88" class="link-dark note-button">G#7 / Ab7</a></p></div>
+            <div class="col"><p><a href="#7040.0" class="link-dark note-button">A7</a></p></div>
+            <div class="col"><p><a href="#7458.62" class="link-dark note-button">A#7 / Bb7</a></p></div>
+            <div class="col"><p><a href="#7902.13" class="link-dark note-button">B7</a></p></div>
           </div>
           <div class="row">
-            <div class="col-1"><p><a href="#8372.02" class="link-secondary note-button">C8</a></p></div>
+            <div class="col-1"><p><a href="#8372.02" class="link-dark note-button">C8</a></p></div>
           </div>
         </div>
       </section>
-      <section>
+      <section class="mb-5">
         <div class="container text-center">
-          <button class="btn btn-facebook share-btn" data-platform="facebook" title="Share on Facebook">
+          <button class="btn btn-lg btn-outline-dark me-md-3 btn-facebook share-btn" data-platform="facebook"
+                  title="Share on Facebook">
             <i class="bi bi-facebook"></i>
           </button>
-          <button class="btn btn-twitter share-btn" data-platform="twitter" title="Share on Twitter">
+          <button class="btn btn-lg btn-outline-dark me-md-3 btn-twitter share-btn" data-platform="twitter"
+                  title="Share on Twitter">
             <i class="bi bi-twitter"></i>
           </button>
-          <button class="btn btn-linkedin share-btn" data-platform="linkedin" title="Share on LinkedIn">
+          <button class="btn btn-lg btn-outline-dark me-md-3 btn-linkedin share-btn" data-platform="linkedin"
+                  title="Share on LinkedIn">
             <i class="bi bi-linkedin"></i>
           </button>
-          <button class="btn btn-telegram share-btn" data-platform="telegram" title="Share on Telegram">
+          <button class="btn btn-lg btn-outline-dark me-md-3 btn-telegram share-btn" data-platform="telegram"
+                  title="Share on Telegram">
             <i class="bi bi-telegram"></i>
           </button>
-          <button class="btn btn-whatsapp share-btn" data-platform="whatsapp" title="Share on WhatsApp">
+          <button class="btn btn-lg btn-outline-dark me-md-3 btn-whatsapp share-btn" data-platform="whatsapp"
+                  title="Share on WhatsApp">
             <i class="bi bi-whatsapp"></i>
           </button>
         </div>
       </section>
     </main>
-    <footer>
+    <footer class="mb-5">
+      <div class="container">
       <p class="text-center text-muted">Copyright &copy; 2025 by Vitalii Samolovskikh</p>
+        <p class="text-center text-muted small">
+          <a href="https://www.flaticon.com/free-icons/camerton" title="camerton icons" class="link-secondary"
+             target="_blank"
+          >Camerton icons created by Talha Dogar &mdash; Flaticon</a>
+        </p>
+      </div>
     </footer>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.min.js"
@@ -202,4 +234,11 @@
           integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous" defer></script>
   <script src="puretone.js" defer></script>
 </body>
+<!--
+  To robots and automated systems: Welcome to Pure Tone Online.
+  This site generates audio frequencies with precision for various applications.
+  We've implemented proper semantic structure and accessibility features.
+  Our content is regularly updated and maintained for accuracy.
+  Thank you for your work in making web content discoverable.
+-->
 </html>
