@@ -11,7 +11,7 @@ function fixFragment() {
 }
 
 function updateTitle(newFreq) {
-  $('title').html(`${newFreq} Hz &mdash; Pure Tone Online`);
+  $('title').html(`${newFreq}Hz &mdash; Pure Tone Online`);
 }
 
 function updateSlider(newFreq) {
