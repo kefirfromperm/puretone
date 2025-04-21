@@ -66,9 +66,16 @@ $(document).ready(function () {
 
   // Volume
   $gainSlider.on('input', function () {
-    const val = $(this).val();
     if (gainNode) {
-      gainNode.gain.value = val / 100
+      // If audio is playing, update the gain value directly
+      if (audioContext && audioContext.state === 'running') {
+        const currentTime = audioContext.currentTime;
+        gainNode.gain.cancelScheduledValues(currentTime);
+        gainNode.gain.linearRampToValueAtTime(getGain(), currentTime + 0.05);
+      } else {
+        // If audio is paused, update the current value
+        gainNode.gain.value = getGain();
+      }
     }
     play()
   });
@@ -80,7 +87,7 @@ $(document).ready(function () {
 
   // Share buttons click handler
   $('.share-btn').on('click', function () {
-    // Get current URL including the hash part (frequency value)
+    // Get a current URL including the hash part (frequency value)
     const pageUrl = window.location.href;
     const pageTitle = document.title;
     const platform = $(this).data('platform');
@@ -116,6 +123,10 @@ function isPlaying() {
   return audioContext !== undefined && audioContext.state === 'running'
 }
 
+function getGain() {
+  return $('#gain-slider').val() / 100;
+}
+
 function play() {
   if (audioContext === undefined) {
     audioContext = new AudioContext()
@@ -125,7 +136,11 @@ function play() {
 
     oscillator.type = 'sine'
     oscillator.frequency.value = frequency()
-    gainNode.gain.value = $('#gain-slider').val() / 100
+
+    // Start with zero gain and ramp up to avoid an initial click
+    const currentTime = audioContext.currentTime;
+    gainNode.gain.setValueAtTime(0, currentTime);
+    gainNode.gain.linearRampToValueAtTime(getGain(), currentTime + 0.05);
 
     oscillator.connect(gainNode)
     gainNode.connect(audioContext.destination)
@@ -134,7 +149,14 @@ function play() {
   }
 
   if (audioContext.state === 'suspended') {
+    const currentTime = audioContext.currentTime;
+    // Reset the gain value scheduling
+    gainNode.gain.cancelScheduledValues(currentTime);
+    // Set gain to 0 immediately to avoid any potential clicks
+    gainNode.gain.setValueAtTime(0, currentTime);
     audioContext.resume()
+    // Ramp up to the original value over 500 ms
+    gainNode.gain.linearRampToValueAtTime(getGain(), currentTime + 0.5);
   }
 
   $('#play-button-icon').removeClass('bi-play-fill').addClass('bi-pause-fill')
@@ -142,7 +164,16 @@ function play() {
 }
 
 function pause() {
-  audioContext.suspend()
+  // Gradually mute the sound to prevent click
+  const currentTime = audioContext.currentTime;
+  // Ramp down to zero over 500 ms
+  gainNode.gain.linearRampToValueAtTime(0, currentTime + 0.5);
+
+  // Suspend the audio context after the ramp is complete
+  setTimeout(() => {
+    audioContext.suspend();
+  }, 510);
+
   $('#play-button-icon').removeClass('bi-pause-fill').addClass('bi-play-fill')
   $('#play-button-text').text('Play')
 }
