@@ -10,8 +10,15 @@ function fixFragment() {
   window.location.hash = '#440'
 }
 
-function updateTitle(newFreq) {
+function updateTitleAndMetaTags(newFreq) {
+  // Update page title
   $('title').html(`${newFreq}Hz &mdash; Pure Tone Online`);
+
+  // Update OpenGraph title
+  $('meta[property="og:title"]').attr('content', `${newFreq}Hz &mdash; Pure Tone Online - Web-based Tone Generator`);
+
+  // Update Twitter title
+  $('meta[name="twitter:title"]').attr('content', `${newFreq}Hz &mdash; Pure Tone Online - Web-based Tone Generator`);
 }
 
 function updateSlider(newFreq) {
@@ -26,7 +33,7 @@ $(document).ready(function () {
   const initialFreq = frequency();
   updateSlider(initialFreq);
   $freqDisplay.text(initialFreq);
-  updateTitle(initialFreq);
+  updateTitleAndMetaTags(initialFreq);
 
 
   if (!isFragmentValid()) {
@@ -47,7 +54,7 @@ $(document).ready(function () {
       const newFreq = frequency()
       updateSlider(newFreq);
       $freqDisplay.text(newFreq);
-      updateTitle(newFreq);
+      updateTitleAndMetaTags(newFreq);
       if (oscillator !== undefined) {
         oscillator.frequency.value = newFreq
       }
